@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Task Management REST API Documentation</h1>
+
+    <section>
+        <h2>Base URL</h2>
+        <p><code>http://localhost:5000/</code></p>
+    </section>
+
+    <section>
+        <h2>Authentication Endpoints</h2>
+
+        <h3>1. Register User</h3>
+        <p><strong>URL:</strong> /auth/register</p>
+        <p><strong>Method:</strong> POST</p>
+        <p><strong>Request Body:</strong></p>
+        <pre>{
+  "username": "your_username",
+  "password": "your_password"
+}</pre>
+        <p><strong>Success Response:</strong></p>
+        <pre>{
+  "msg": "Registration successful"
+}</pre>
+
+        <h3>2. Login User</h3>
+        <p><strong>URL:</strong> /auth/login</p>
+        <p><strong>Method:</strong> POST</p>
+        <p><strong>Request Body:</strong></p>
+        <pre>{
+  "username": "your_username",
+  "password": "your_password"
+}</pre>
+        <p><strong>Success Response:</strong></p>
+        <pre>{
+  "msg": "Login successful",
+  "token": "JWT_ACCESS_TOKEN"
+}</pre>
+    </section>
+
+    <section>
+        <h2>Task Endpoints (JWT protected)</h2>
+
+        <h3>1. Create Task</h3>
+        <p><strong>URL:</strong> /api/addtask</p>
+        <p><strong>Method:</strong> POST</p>
+        <p><strong>Request Body:</strong></p>
+        <pre>{
+  "title": "Finish Flask REST API",
+  "content": "Implement CRUD endpoints",
+  "status": "Pending",
+  "deadline": "2025-09-20"
+}</pre>
+
+        <h3>2. Get All Tasks</h3>
+        <p><strong>URL:</strong> /api/tasks</p>
+        <p><strong>Method:</strong> GET</p>
+
+        <h3>3. Get Single Task</h3>
+        <p><strong>URL:</strong> /api/tasks/&lt;task_id&gt;</p>
+        <p><strong>Method:</strong> GET</p>
+
+        <h3>4. Update Task</h3>
+        <p><strong>URL:</strong> /api/tasks/&lt;task_id&gt;</p>
+        <p><strong>Method:</strong> PUT</p>
+
+        <h3>5. Delete Task</h3>
+        <p><strong>URL:</strong> /api/tasks/&lt;task_id&gt;</p>
+        <p><strong>Method:</strong> DELETE</p>
+    </section>
+
+    <section>
+        <h2>Notes</h2>
+        <ul>
+            <li>JWT Token: Include in headers for all task routes: <code>Authorization: Bearer &lt;token&gt;</code></li>
+            <li>Deadline format: YYYY-MM-DD</li>
+            <li>Status values: Pending (default) or Completed</li>
+            <li>IDs (task_id, user_id) are UUID strings</li>
+        </ul>
+    </section>
+</body>
+</html>
