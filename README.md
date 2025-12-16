@@ -25,10 +25,8 @@ A simple Task Management CRUD application using **Flask REST APIs** for the back
 ## Tech Stack
 
 - **Backend:** Python, Flask, SQLAlchemy, SQLite
-- **Frontend:** React.js
 - **Authentication:** JWT
-- **Styling:** Minimal CSS / frontend styles
-- **Database:** SQLite (can be switched to PostgreSQL/MySQL)
+- **Database:** SQLite
 
 ---
 
@@ -73,6 +71,3 @@ task-m-rest/
 - Status values: `"Pending"` or `"Completed"`
 
 ---
-
-## Project Structure
-
